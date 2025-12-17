@@ -31,7 +31,7 @@ def generate_launch_description():
     use_rviz = LaunchConfiguration('use_rviz', default='true')
     namespace = LaunchConfiguration('namespace', default='tb3_2')
     
-    turtlebot3_cartographer_prefix = get_package_share_directory('turtlebot3_cartographer')
+    turtlebot3_cartographer_prefix = get_package_share_directory('tb3_2_cartographer')
     cartographer_config_dir = LaunchConfiguration('cartographer_config_dir', default=os.path.join(
                                                   turtlebot3_cartographer_prefix, 'config'))
     configuration_basename = LaunchConfiguration('configuration_basename',
@@ -40,7 +40,7 @@ def generate_launch_description():
     resolution = LaunchConfiguration('resolution', default='0.05')
     publish_period_sec = LaunchConfiguration('publish_period_sec', default='1.0')
 
-    rviz_config_dir = os.path.join(get_package_share_directory('turtlebot3_cartographer'),
+    rviz_config_dir = os.path.join(get_package_share_directory('tb3_2_cartographer'),
                                    'rviz', 'tb3_cartographer.rviz')
 
     return LaunchDescription([
