@@ -1,7 +1,12 @@
 import matplotlib.pyplot as plt
 
 save_image = True
-files = ["../data/1.txt", "../data/2.txt", "../data/3.txt", "../data/4.txt"]
+files = [
+    "../../../data/mobile/1.txt", 
+    "../../../data/mobile/2.txt", 
+    "../../../data/mobile/3.txt", 
+    "../../../data/mobile/4.txt"
+]
 number_of_data_per_experiment = 10
 
 
@@ -24,11 +29,11 @@ plt.xticks([1, 2, 3, 4, 5])
 plt.xlim(1, 5)
 plt.xlabel("Experiment Index")
 plt.ylabel("Average Network Latency (ms)")
-plt.title("Average Network Latency per Test")
+plt.title("[MOBILE] Average Network Latency per Test")
 plt.grid(True)
 plt.legend()
 
 if save_image:
-    plt.savefig('../analysis/average_latency_per_test.png')
+    plt.savefig('../../analysis/mobile/average_latency_per_test.png')
 
 plt.show()
