@@ -21,7 +21,6 @@ for file in files:
             if not line.startswith('RAM used (GB):'):
                 continue
             values.append(float(line.split()[-1]))
-        print(values)
         avg = sum(values) / len(values)
         averages.append(avg)
 
