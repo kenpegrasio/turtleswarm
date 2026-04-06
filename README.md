@@ -1,6 +1,6 @@
-# 🧭 Optimizing Multi-Robot Collaboration using TurtleBot3
+# Turtlebot3 Multi-Robot Collaboration
 
-This guide walks you through setting up multiple TurtleBot3 robots for collaborative SLAM and navigation using ROS 2 Humble and Cartographer.
+This guide walks you through setting up multiple TurtleBot3 robots for namespaced SLAM and navigation using ROS 2 Humble and Cartographer.
 
 ---
 
@@ -44,6 +44,10 @@ Each turtlebot3 are labeled by number from 1 to 4. These numbers will replace th
    ```bash
    cd ~/turtlebot3_ws/src/turtlebot3
    ln -s turtleswarm/tb3_<TURTLEBOT_NUMBER>_cartographer tb3_<TURTLEBOT_NUMBER>_cartographer
+   ln -s turtleswarm/tb3_1_lift tb3_1_lift
+   ln -s turtleswarm/tb3_2_navigation2 tb3_2_navigation2
+   ln -s turtleswarm/tb3_3_static_mov tb3_3_static_mov
+   ln -s turtleswarm/tb3_4_camera tb3_4_camera
    ```
 
 3. **Rebuild the workspace**
