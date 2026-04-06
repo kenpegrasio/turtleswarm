@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 HERE = Path(__file__).parent
-DATA = HERE / "../../../data"
-ANALYSIS = HERE / "../../analysis"
+DATA = HERE / "../../data"
+ANALYSIS = HERE / "../analysis"
 
 save_image = True
 latency_file_paths = [
@@ -60,6 +60,6 @@ plt.grid(True)
 plt.legend()
 
 if save_image:
-    plt.savefig(ANALYSIS / "router/average_latency_per_test.png")
+    plt.savefig(ANALYSIS / "e2e_cartographers_router_per_test.png")
 
 plt.show()

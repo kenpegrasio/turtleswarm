@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 HERE = Path(__file__).parent
-DATA = HERE / "../../../../../data"
-ANALYSIS = HERE / "../../../../analysis"
+DATA = HERE / "../../data"
+ANALYSIS = HERE / "../analysis"
 
 save_image = True
 
@@ -60,6 +60,6 @@ plt.title("[CYCLONE DDS] Average End to End Latency and Messages Dropped per Tes
 plt.tight_layout()
 
 if save_image:
-    plt.savefig(ANALYSIS / "end_to_end/nav2/cyclone_dds/cyclone_dds_per_test.png")
+    plt.savefig(ANALYSIS / "e2e_nav2_cyclone_dds.png")
 
 plt.show()

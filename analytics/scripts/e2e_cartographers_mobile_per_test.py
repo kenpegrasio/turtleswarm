@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 HERE = Path(__file__).parent
-DATA = HERE / "../../../data"
-ANALYSIS = HERE / "../../analysis"
+DATA = HERE / "../../data"
+ANALYSIS = HERE / "../analysis"
 
 save_image = True
 files = [
@@ -39,6 +39,6 @@ plt.grid(True)
 plt.legend()
 
 if save_image:
-    plt.savefig(ANALYSIS / "mobile/average_latency_per_test.png")
+    plt.savefig(ANALYSIS / "e2e_cartographers_mobile_per_test.png")
 
 plt.show()

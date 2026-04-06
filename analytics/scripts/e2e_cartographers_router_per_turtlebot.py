@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 HERE = Path(__file__).parent
-DATA = HERE / "../../../data"
-ANALYSIS = HERE / "../../analysis"
+DATA = HERE / "../../data"
+ANALYSIS = HERE / "../analysis"
 
 save_image = True
 files = [
@@ -52,6 +52,6 @@ for xi, yi, offset in zip(x, averages, offsets):
     )
 
 if save_image:
-    plt.savefig(ANALYSIS / "router/average_latency_per_turtlebot.png")
+    plt.savefig(ANALYSIS / "e2e_cartographers_router_per_turtlebot.png")
 
 plt.show()

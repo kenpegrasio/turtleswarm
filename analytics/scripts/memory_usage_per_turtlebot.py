@@ -1,12 +1,17 @@
 import matplotlib.pyplot as plt
+from pathlib import Path
+
+HERE = Path(__file__).parent
+DATA = HERE / "../../data"
+ANALYSIS = HERE / "../analysis"
 
 save_image = True
 files = [
-    "../../../data/memory/0.txt",
-    "../../../data/memory/1.txt", 
-    "../../../data/memory/2.txt", 
-    "../../../data/memory/3.txt", 
-    "../../../data/memory/4.txt"
+    DATA / "memory/0.txt",
+    DATA / "memory/1.txt",
+    DATA / "memory/2.txt",
+    DATA / "memory/3.txt",
+    DATA / "memory/4.txt",
 ]
 offsets = [(0, 6), (-8, 6), (-15, 4), (-16, -2), (-20, -3)]
 
@@ -44,6 +49,6 @@ for xi, yi, offset in zip(x, averages, offsets):
     )
 
 if save_image:
-    plt.savefig("../../analysis/memory/average_memory_usage_per_turtlebot.png")
+    plt.savefig(ANALYSIS / "memory_usage_per_turtlebot.png")
 
 plt.show()

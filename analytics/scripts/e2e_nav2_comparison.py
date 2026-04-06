@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 HERE = Path(__file__).parent
-DATA = HERE / "../../../../data"
-ANALYSIS = HERE / "../../../analysis"
+DATA = HERE / "../../data"
+ANALYSIS = HERE / "../analysis"
 
 save_image = True
 
@@ -59,7 +59,7 @@ ax.legend()
 
 plt.tight_layout()
 if save_image:
-    fig1.savefig(ANALYSIS / "end_to_end/nav2/latency_comparison.png")
+    fig1.savefig(ANALYSIS / "e2e_nav2_comparison_latency.png")
 
 # ── Graph 2: Messages Dropped ─────────────────────────────────────────────────
 fig2, ax = plt.subplots(figsize=(11, 5))
@@ -78,6 +78,6 @@ ax.legend()
 
 plt.tight_layout()
 if save_image:
-    fig2.savefig(ANALYSIS / "end_to_end/nav2/drops_comparison.png")
+    fig2.savefig(ANALYSIS / "e2e_nav2_comparison_drops.png")
 
 plt.show()
