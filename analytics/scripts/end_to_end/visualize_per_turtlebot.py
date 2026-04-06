@@ -1,14 +1,19 @@
 import matplotlib.pyplot as plt
+from pathlib import Path
+
+HERE = Path(__file__).parent
+DATA = HERE / "../../../data"
+ANALYSIS = HERE / "../../analysis"
 
 save_image = True
 
-# SIMBA ROUTER
+# HUAWEI ROUTER
 
 router_files = [
-    "../../../data/router/latency/1.txt", 
-    "../../../data/router/latency/2.txt", 
-    "../../../data/router/latency/3.txt", 
-    "../../../data/router/latency/4.txt"
+    DATA / "router/cartographers/latency/1.txt",
+    DATA / "router/cartographers/latency/2.txt",
+    DATA / "router/cartographers/latency/3.txt",
+    DATA / "router/cartographers/latency/4.txt",
 ]
 number_of_data_per_turtlebot = 50
 
@@ -30,10 +35,10 @@ for file in router_files:
 # MOBILE
 
 mobile_files = [
-    "../../../data/mobile/1.txt", 
-    "../../../data/mobile/2.txt", 
-    "../../../data/mobile/3.txt", 
-    "../../../data/mobile/4.txt"
+    DATA / "mobile/cartographers/1.txt",
+    DATA / "mobile/cartographers/2.txt",
+    DATA / "mobile/cartographers/3.txt",
+    DATA / "mobile/cartographers/4.txt",
 ]
 
 mobile_averages = []
@@ -51,12 +56,12 @@ mobile_offsets = [(0, 9), (0, 9), (2, 6), (-4, 2)]
 
 plt.figure()
 
-plt.plot(x, router_averages, marker="o", label="SIMBA Router")
+plt.plot(x, router_averages, marker="o", label="Huawei Router")
 plt.plot(x, mobile_averages, marker="o", label="Mobile")
 
 plt.xlabel("Number of Turtlebots")
-plt.ylabel("Average Network Latency (ms)")
-plt.title("[MOBILE VS SIMBA ROUTER] Average Network Latency per Turtlebot")
+plt.ylabel("Average End to End Latency (ms)")
+plt.title("[MOBILE VS HUAWEI ROUTER] Average End to End Latency per Turtlebot")
 plt.xticks(x)
 plt.grid(True)
 plt.legend()
@@ -80,6 +85,6 @@ for xi, yi, offset in zip(x, mobile_averages, mobile_offsets):
     )
 
 if save_image:
-    plt.savefig("../../analysis/network/average_latency_per_turtlebot.png")
+    plt.savefig(ANALYSIS / "end_to_end/average_latency_per_turtlebot.png")
 
 plt.show()

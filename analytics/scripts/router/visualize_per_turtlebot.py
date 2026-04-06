@@ -1,11 +1,16 @@
 import matplotlib.pyplot as plt
+from pathlib import Path
+
+HERE = Path(__file__).parent
+DATA = HERE / "../../../data"
+ANALYSIS = HERE / "../../analysis"
 
 save_image = True
 files = [
-    "../../../data/router/latency/1.txt", 
-    "../../../data/router/latency/2.txt", 
-    "../../../data/router/latency/3.txt", 
-    "../../../data/router/latency/4.txt"
+    DATA / "router/cartographers/latency/1.txt",
+    DATA / "router/cartographers/latency/2.txt",
+    DATA / "router/cartographers/latency/3.txt",
+    DATA / "router/cartographers/latency/4.txt",
 ]
 offsets = [(0, 6), (-8, 6), (-15, 4), (-24, -2)]
 number_of_data_per_turtlebot = 50
@@ -32,8 +37,8 @@ x = list(range(1, len(files) + 1))
 plt.figure()
 plt.plot(x, averages, marker='o')
 plt.xlabel("Number of Turtlebots")
-plt.ylabel("Average Network Latency (ms)")
-plt.title("[ROUTER] Average Network Latency based on Number of Turtlebots")
+plt.ylabel("Average End to End Latency (ms)")
+plt.title("[HUAWEI ROUTER] Average End to End Latency based on Number of Turtlebots")
 plt.xticks(x)
 plt.grid(True)
 
@@ -47,6 +52,6 @@ for xi, yi, offset in zip(x, averages, offsets):
     )
 
 if save_image:
-    plt.savefig("../../analysis/router/average_latency_per_turtlebot.png")
+    plt.savefig(ANALYSIS / "router/average_latency_per_turtlebot.png")
 
 plt.show()

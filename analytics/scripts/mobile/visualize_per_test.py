@@ -1,11 +1,16 @@
 import matplotlib.pyplot as plt
+from pathlib import Path
+
+HERE = Path(__file__).parent
+DATA = HERE / "../../../data"
+ANALYSIS = HERE / "../../analysis"
 
 save_image = True
 files = [
-    "../../../data/mobile/1.txt", 
-    "../../../data/mobile/2.txt", 
-    "../../../data/mobile/3.txt", 
-    "../../../data/mobile/4.txt"
+    DATA / "mobile/cartographers/1.txt",
+    DATA / "mobile/cartographers/2.txt",
+    DATA / "mobile/cartographers/3.txt",
+    DATA / "mobile/cartographers/4.txt",
 ]
 number_of_data_per_experiment = 10
 
@@ -23,17 +28,17 @@ for file in files:
 
     x = list(range(1, len(chunk_averages) + 1))
 
-    plt.plot(x, chunk_averages, marker=".", label=f"{file.split('/')[-1].split('.')[0]} turtlebots")
+    plt.plot(x, chunk_averages, marker=".", label=f"{file.stem} turtlebots")
 
 plt.xticks([1, 2, 3, 4, 5])
 plt.xlim(1, 5)
 plt.xlabel("Experiment Index")
-plt.ylabel("Average Network Latency (ms)")
-plt.title("[MOBILE] Average Network Latency per Test")
+plt.ylabel("Average End to End Latency (ms)")
+plt.title("[MOBILE] Average End to End Latency per Test")
 plt.grid(True)
 plt.legend()
 
 if save_image:
-    plt.savefig('../../analysis/mobile/average_latency_per_test.png')
+    plt.savefig(ANALYSIS / "mobile/average_latency_per_test.png")
 
 plt.show()

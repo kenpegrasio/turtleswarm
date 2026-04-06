@@ -1,11 +1,16 @@
 import matplotlib.pyplot as plt
+from pathlib import Path
+
+HERE = Path(__file__).parent
+DATA = HERE / "../../../data"
+ANALYSIS = HERE / "../../analysis"
 
 save_image = True
 files = [
-    "../../../data/mobile/1.txt", 
-    "../../../data/mobile/2.txt", 
-    "../../../data/mobile/3.txt", 
-    "../../../data/mobile/4.txt"
+    DATA / "mobile/cartographers/1.txt",
+    DATA / "mobile/cartographers/2.txt",
+    DATA / "mobile/cartographers/3.txt",
+    DATA / "mobile/cartographers/4.txt",
 ]
 offsets = [(0, 6), (-8, 6), (-15, 4), (-24, -2)]
 
@@ -22,8 +27,8 @@ x = list(range(1, len(files) + 1))
 plt.figure()
 plt.plot(x, averages, marker='o')
 plt.xlabel("Number of Turtlebots")
-plt.ylabel("Average Network Latency (ms)")
-plt.title("[MOBILE] Average Network Latency based on Number of Turtlebots")
+plt.ylabel("Average End to End Latency (ms)")
+plt.title("[MOBILE] Average End to End Latency based on Number of Turtlebots")
 plt.xticks(x)
 plt.grid(True)
 
@@ -37,6 +42,6 @@ for xi, yi, offset in zip(x, averages, offsets):
     )
 
 if save_image:
-    plt.savefig("../../analysis/mobile/average_latency_per_turtlebot.png")
+    plt.savefig(ANALYSIS / "mobile/average_latency_per_turtlebot.png")
 
 plt.show()
