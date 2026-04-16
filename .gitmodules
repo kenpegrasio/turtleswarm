@@ -4,9 +4,6 @@
 [submodule "tb3_2_navigation2"]
 	path = tb3_2_navigation2
 	url = https://github.com/Nishuy52/tb3_2_navigation2.git
-[submodule "tb3_3_static_mov"]
-	path = tb3_3_static_mov
-	url = https://github.com/kenpegrasio/tb3_3_static_mov.git
 [submodule "tb3_4_camera"]
 	path = tb3_4_camera
 	url = https://github.com/kenpegrasio/tb3_4_camera.git
